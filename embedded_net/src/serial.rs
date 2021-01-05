@@ -29,12 +29,29 @@ impl fmt::Write for SerialWrapper {
         Ok(())
     }
 }
+impl SerialWrapper {
+    fn write_byte(&mut self, byte: u8) -> fmt::Result {
+        let res = block!(self.0.write(byte));
+
+        if res.is_err() {
+            return Err(::core::fmt::Error);
+        }
+        Ok(())
+    }
+}
 
 /// Writes string to stdout
 pub fn write_str(s: &str) {
     interrupt::free(|_| unsafe {
         if let Some(stdout) = STDOUT.as_mut() {
             let _ = stdout.write_str(s);
+        }
+    })
+}
+pub fn write_byte(b: u8) {
+    interrupt::free(|_| unsafe {
+        if let Some(stdout) = STDOUT.as_mut() {
+            let _ = stdout.write_byte(b);
         }
     })
 }

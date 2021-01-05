@@ -1,11 +1,9 @@
 #!/usr/bin/env sh
 set -e
-
 riscv-nuclei-elf-objcopy -O binary $1 firmware.bin
 
 NAME="$(basename firmware.bin)"
 SIZE_TEXT="$(riscv-nuclei-elf-size "$1" | tail -1 | cut -f1)"
-echo $SIZE_TEXT
 SIZE_DATA="$(riscv-nuclei-elf-size "$1" | tail -1 | cut -f2)"
 SIZE_BSS="$(riscv-nuclei-elf-size "$1" | tail -1 | cut -f3)"
 

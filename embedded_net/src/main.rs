@@ -1,12 +1,12 @@
 #![no_std]
 #![no_main]
-
+#![allow(dead_code)]
 use nb::block;
 use panic_halt as _;
 
-use embedded_hal::blocking::delay::DelayMs;
+// use embedded_hal::blocking::delay::DelayMs;
 use gd32vf103xx_hal as hal;
-use gd32vf103xx_hal::delay::McycleDelay;
+// use gd32vf103xx_hal::delay::McycleDelay;
 use gd32vf103xx_hal::gpio::GpioExt;
 use gd32vf103xx_hal::rcu::RcuExt;
 use hal::{
@@ -18,7 +18,7 @@ use embedded_hal::serial::Read;
 use longan_nano::led::{rgb, Led};
 use riscv::interrupt;
 use riscv_rt::entry;
-use serial::{SerialWrapper, STDOUT};
+use serial::{write_byte, SerialWrapper, STDOUT};
 use sparse_embedded::*;
 const N_CONV1: usize = 87;
 const N_CONV2: usize = 208;
@@ -35,17 +35,16 @@ const LAYERS: (
     FCLayer<N_FC2>,
 ) = include!("../build/layers.rs");
 
-struct SerialReader<F: FnMut() -> u8> {
+struct SerialReader<F: FnMut() -> u8, G: FnMut(u8) -> ()> {
     reader: F,
+    sender: G,
 }
 
-impl<F: FnMut() -> u8> SerialReader<F> {
+impl<F: FnMut() -> u8, G: FnMut(u8) -> ()> SerialReader<F, G> {
     fn read_image(&mut self) -> [[FixedI16; 28]; 28] {
         let mut array = [[FixedI16::ZERO; 28]; 28];
-        while (self.reader)() != 0xff {
-            sprintln!("waiting for ff");
-        }
-        sprintln!("finished waiting");
+        while (self.reader)() != 0xA0 {}
+        (self.sender)(0xA0);
         for x in 0..28 {
             for y in 0..28 {
                 let b1 = (self.reader)();
@@ -58,13 +57,17 @@ impl<F: FnMut() -> u8> SerialReader<F> {
                     } else if sign == 1 {
                         -n
                     } else {
-                        sprintln!("Error while receiving");
+                        (self.sender)(0xE0);
+                        while (self.reader)() != 0xE0 {}
                         return self.read_image();
                     },
                 }
             }
         }
         array
+    }
+    fn send_byte(&mut self, b: u8) {
+        (self.sender)(b)
     }
 }
 
@@ -118,7 +121,7 @@ fn main() -> ! {
     let tx = tx.into_alternate_push_pull();
     let rx = rx.into_floating_input();
     let config = hal::serial::Config {
-        baudrate: 115_200.bps(),
+        baudrate: 115200.bps(),
         parity: hal::serial::Parity::ParityNone,
         stopbits: hal::serial::StopBits::STOP1,
     };
@@ -135,33 +138,25 @@ fn main() -> ! {
     //     red.off();
     //     sprintln!("received {}", block!(rx.read()).unwrap());
     // }
-    let read_byte = || {
-        sprintln!("reading");
-        let b = block!(rx.read()).unwrap_or({
-            sprintln!("failed");
-            0
-        });
-        sprintln!("Received {}", b);
-        b
+    let read_byte = || block!(rx.read()).unwrap();
+    let send_byte = |b| write_byte(b);
+    let mut reader = SerialReader {
+        reader: read_byte,
+        sender: send_byte,
     };
-    let mut reader = SerialReader { reader: read_byte };
     interrupt::free(|_| unsafe {
         STDOUT.replace(SerialWrapper(tx));
     });
-    red.on();
-    green.on();
-    blue.on();
-    sprintln!("Waiting for image");
-    let im = reader.read_image();
-    red.off();
-    green.off();
-    sprintln!("Started computing");
-    let res = forward_net(im);
-    blue.off();
-    green.on();
-    sprintln!("Computed {}", res);
-    let mut delay = McycleDelay::new(&rcu.clocks);
+    // let mut delay = McycleDelay::new(&rcu.clocks);
     loop {
-        delay.delay_ms(500);
+        red.on();
+        green.off();
+        blue.off();
+        let im = reader.read_image();
+        red.off();
+        green.off();
+        blue.on();
+        let res = forward_net(im);
+        reader.send_byte(res);
     }
 }
