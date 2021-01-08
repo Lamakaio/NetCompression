@@ -121,15 +121,18 @@ fn main() {
 
     //Image transfer
     let mut port = serial::open(&port).unwrap();
+    let mut err = 0;
     configure(&mut port).unwrap();
     for (i, im) in images.into_iter().enumerate() {
         let res = send_image(&mut port, im).unwrap();
         if res == tst_lbl[v[i]] {
             green_ln!("Image {}: output is {}, label is {}", i, res, tst_lbl[v[i]]);
         } else {
+            err += 1;
             red_ln!("Image {}: output is {}, label is {}", i, res, tst_lbl[v[i]]);
         }
     }
+    println!("Error rate : {}", err as f32 / s as f32);
     while window.is_open() && !window.is_key_down(Key::Escape) {
         sleep(Duration::from_millis(10));
         window.update();
