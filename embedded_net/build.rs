@@ -1,9 +1,9 @@
 //number of non-zero weights in each layer is hard coded.
-const N_CONV1: usize = 87;
-const N_CONV2: usize = 208;
-const N_CONV3: usize = 180;
-const N_FC1: usize = 184;
-const N_FC2: usize = 181;
+const N_CONV1: usize = 68;
+const N_CONV2: usize = 189;
+const N_CONV3: usize = 259;
+const N_FC1: usize = 177;
+const N_FC2: usize = 103;
 use mnist::{Mnist, MnistBuilder};
 use sparse_embedded::*;
 use std::io::Write;
@@ -40,11 +40,11 @@ fn main() {
     }
     file.write_all(&format!("]],{})", tst_lbl[i]).into_bytes())
         .unwrap();
-    let conv1_weights = include_bytes!("training_data/conv1_weights.pkl");
-    let conv2_weights = include_bytes!("training_data/conv2_weights.pkl");
-    let conv3_weights = include_bytes!("training_data/conv3_weights.pkl");
-    let fc1_weights = include_bytes!("training_data/fc1_weights.pkl");
-    let fc2_weights = include_bytes!("training_data/fc2_weights.pkl");
+    let conv1_weights = include_bytes!("../training_data/conv1_weights.pkl");
+    let conv2_weights = include_bytes!("../training_data/conv2_weights.pkl");
+    let conv3_weights = include_bytes!("../training_data/conv3_weights.pkl");
+    let fc1_weights = include_bytes!("../training_data/fc1_weights.pkl");
+    let fc2_weights = include_bytes!("../training_data/fc2_weights.pkl");
     let conv1_weights: Vec<Vec<Vec<Vec<f64>>>> = serde_pickle::from_slice(conv1_weights).unwrap();
     let conv2_weights: Vec<Vec<Vec<Vec<f64>>>> = serde_pickle::from_slice(conv2_weights).unwrap();
     let conv3_weights: Vec<Vec<Vec<Vec<f64>>>> = serde_pickle::from_slice(conv3_weights).unwrap();

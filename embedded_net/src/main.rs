@@ -1,30 +1,20 @@
 #![no_std]
 #![no_main]
-#![allow(dead_code)]
-use nb::block;
-use panic_halt as _;
 
-// use embedded_hal::blocking::delay::DelayMs;
-use gd32vf103xx_hal as hal;
-// use gd32vf103xx_hal::delay::McycleDelay;
-use gd32vf103xx_hal::gpio::GpioExt;
-use gd32vf103xx_hal::rcu::RcuExt;
-use hal::{
-    pac,
-    prelude::{_gd32vf103xx_hal_afio_AfioExt, _gd32vf103xx_hal_time_U32Ext},
-};
 mod serial;
-use embedded_hal::serial::Read;
+
+use gd32vf103xx_hal as hal;
+use hal::{gpio::GpioExt, pac, prelude::*, rcu::RcuExt};
 use longan_nano::led::{rgb, Led};
-use riscv::interrupt;
-use riscv_rt::entry;
+use panic_halt as _;
 use serial::{write_byte, SerialWrapper, STDOUT};
 use sparse_embedded::*;
-const N_CONV1: usize = 87;
-const N_CONV2: usize = 208;
-const N_CONV3: usize = 180;
-const N_FC1: usize = 184;
-const N_FC2: usize = 181;
+const N_CONV1: usize = 68;
+const N_CONV2: usize = 189;
+const N_CONV3: usize = 259;
+const N_FC1: usize = 177;
+const N_FC2: usize = 103;
+
 // const IM: ([[FixedI16; 28]; 28], u8) = include!("../build/im.rs");
 // LED's on PC13, PA1 and PA2
 const LAYERS: (
@@ -47,21 +37,9 @@ impl<F: FnMut() -> u8, G: FnMut(u8) -> ()> SerialReader<F, G> {
         (self.sender)(0xA0);
         for x in 0..28 {
             for y in 0..28 {
-                let b1 = (self.reader)();
-                let b2 = (self.reader)();
-                let sign = (self.reader)();
-                let n = b1 as i16 + b2 as i16 * 256;
-                array[x][y] = FixedI16 {
-                    n: if sign == 0 {
-                        n
-                    } else if sign == 1 {
-                        -n
-                    } else {
-                        (self.sender)(0xE0);
-                        while (self.reader)() != 0xE0 {}
-                        return self.read_image();
-                    },
-                }
+                let b = (self.reader)();
+                let n = b as i16 * 4;
+                array[x][y] = FixedI16 { n }
             }
         }
         array
@@ -100,7 +78,7 @@ fn forward_net(input: [[FixedI16; 28]; 28]) -> u8 {
         .0 as u8
 }
 
-#[entry]
+#[riscv_rt::entry]
 fn main() -> ! {
     let dp = pac::Peripherals::take().unwrap();
 
@@ -130,24 +108,15 @@ fn main() -> ! {
     rx.listen();
     let gpioc = dp.GPIOC.split(&mut rcu);
     let (mut red, mut green, mut blue) = rgb(gpioc.pc13, gpioa.pa1, gpioa.pa2);
-    // loop {
-    //     green.off();
-    //     red.on();
-    //     sprintln!("received {}", block!(rx.read()).unwrap());
-    //     green.on();
-    //     red.off();
-    //     sprintln!("received {}", block!(rx.read()).unwrap());
-    // }
-    let read_byte = || block!(rx.read()).unwrap();
+    let read_byte = || nb::block!(rx.read()).unwrap();
     let send_byte = |b| write_byte(b);
     let mut reader = SerialReader {
         reader: read_byte,
         sender: send_byte,
     };
-    interrupt::free(|_| unsafe {
+    riscv::interrupt::free(|_| unsafe {
         STDOUT.replace(SerialWrapper(tx));
     });
-    // let mut delay = McycleDelay::new(&rcu.clocks);
     loop {
         red.on();
         green.off();

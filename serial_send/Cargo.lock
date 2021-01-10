@@ -1116,7 +1116,6 @@ dependencies = [
  "mnist",
  "rand",
  "serial",
- "sparse_embedded",
  "text_io",
 ]
 
@@ -1162,10 +1161,6 @@ dependencies = [
  "libc",
  "winapi 0.3.9",
 ]
-
-[[package]]
-name = "sparse_embedded"
-version = "0.1.0"
 
 [[package]]
 name = "syn"

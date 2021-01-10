@@ -1,6 +1,5 @@
 //! Stdout based on the UART hooked up to the debug connector
 
-use core::fmt::{self, Write};
 use gd32vf103xx_hal::{pac::USART0, prelude::*, serial::Tx};
 use nb::block;
 use riscv::interrupt;
@@ -9,8 +8,8 @@ pub static mut STDOUT: Option<SerialWrapper> = None;
 
 pub struct SerialWrapper(pub Tx<USART0>);
 
-impl fmt::Write for SerialWrapper {
-    fn write_str(&mut self, s: &str) -> fmt::Result {
+impl core::fmt::Write for SerialWrapper {
+    fn write_str(&mut self, s: &str) -> core::fmt::Result {
         for byte in s.as_bytes() {
             if *byte == '\n' as u8 {
                 let res = block!(self.0.write('\r' as u8));
@@ -30,7 +29,7 @@ impl fmt::Write for SerialWrapper {
     }
 }
 impl SerialWrapper {
-    fn write_byte(&mut self, byte: u8) -> fmt::Result {
+    fn write_byte(&mut self, byte: u8) -> core::fmt::Result {
         let res = block!(self.0.write(byte));
 
         if res.is_err() {
@@ -39,28 +38,10 @@ impl SerialWrapper {
         Ok(())
     }
 }
-
-/// Writes string to stdout
-pub fn write_str(s: &str) {
-    interrupt::free(|_| unsafe {
-        if let Some(stdout) = STDOUT.as_mut() {
-            let _ = stdout.write_str(s);
-        }
-    })
-}
 pub fn write_byte(b: u8) {
     interrupt::free(|_| unsafe {
         if let Some(stdout) = STDOUT.as_mut() {
             let _ = stdout.write_byte(b);
-        }
-    })
-}
-
-/// Writes formatted string to stdout
-pub fn write_fmt(args: fmt::Arguments) {
-    interrupt::free(|_| unsafe {
-        if let Some(stdout) = STDOUT.as_mut() {
-            let _ = stdout.write_fmt(args);
         }
     })
 }

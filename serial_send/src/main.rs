@@ -6,16 +6,10 @@ use mnist::{Mnist, MnistBuilder};
 use rand::seq::SliceRandom;
 use rand::thread_rng;
 use serial::SerialPort;
-use sparse_embedded::FixedI16;
 use text_io::read;
 
-fn f64_to_fixed16(i: f64) -> FixedI16 {
-    FixedI16 {
-        n: (i * 1024.).trunc() as i16,
-    }
-}
 const SCALE: usize = 6;
-fn send_image<T: SerialPort>(port: &mut T, im: [[FixedI16; 28]; 28]) -> io::Result<u8> {
+fn send_image<T: SerialPort>(port: &mut T, im: [[u8; 28]; 28]) -> io::Result<u8> {
     let mut buf = [0xA0; 1];
     port.write(&buf)?;
     port.read(&mut buf)?;
@@ -25,13 +19,7 @@ fn send_image<T: SerialPort>(port: &mut T, im: [[FixedI16; 28]; 28]) -> io::Resu
     }
     for x in 0..28 {
         for y in 0..28 {
-            let n = im[x][y].n;
-            let sign = if n < 0 { 1 } else { 0 };
-            let n = n.abs() as u16;
-            let b1 = (n & 0xff) as u8;
-            let b2 = (n >> 8) as u8;
-            let buf = [b1, b2, sign];
-            port.write(&buf)?;
+            port.write(&im[x][y..y + 1])?;
         }
     }
     port.read(&mut buf)?;
@@ -95,7 +83,7 @@ fn main() {
     let mut images = Vec::new();
     for i in 0..s as usize {
         let im_i = v[i];
-        let mut im = [[FixedI16::ZERO; 28]; 28];
+        let mut im = [[0; 28]; 28];
         let x_screen = i % im_screen_size;
         let y_screen = i / im_screen_size;
         for x in 0..28 {
@@ -109,7 +97,7 @@ fn main() {
                             (val as u32) + (val as u32) * 256 + (val as u32) * 256 * 256;
                     }
                 }
-                im[x][y] = f64_to_fixed16(val as f64 / 255.)
+                im[x][y] = val;
             }
         }
         images.push(im);
