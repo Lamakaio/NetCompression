@@ -1,0 +1,2726 @@
+struct Net
+{
+    conv2 : :: sparse_embedded :: ops :: conv_unary :: ConvUnary < FixedI16,
+    1, 1, 6, 28, 24, 5, 28, 24, 5, 87 >, un_op3 : :: sparse_embedded :: ops ::
+    map :: ReLu4 < FixedI16, 1, 6, 24, 24 >, max_pool4 : :: sparse_embedded ::
+    ops :: maxpool :: MaxPool < FixedI16, 1, 6, 24, 12, 2, 2, 24, 12, 2, 2 >,
+    conv6 : :: sparse_embedded :: ops :: conv_unary :: ConvUnary < FixedI16,
+    1, 6, 16, 12, 8, 5, 12, 8, 5, 199 >, un_op7 : :: sparse_embedded :: ops ::
+    map :: ReLu4 < FixedI16, 1, 16, 8, 8 >, max_pool8 : :: sparse_embedded ::
+    ops :: maxpool :: MaxPool < FixedI16, 1, 16, 8, 4, 2, 2, 8, 4, 2, 2 >,
+    conv10 : :: sparse_embedded :: ops :: conv_unary :: ConvUnary < FixedI16,
+    1, 16, 120, 4, 1, 4, 4, 1, 4, 246 >, un_op11 : :: sparse_embedded :: ops
+    :: map :: ReLu4 < FixedI16, 1, 120, 1, 1 >, axis_op13 : :: sparse_embedded
+    :: ops :: axis_op :: RmW < FixedI16, 1, 120, 1 >, axis_op14 : ::
+    sparse_embedded :: ops :: axis_op :: RmH < FixedI16, 1, 120 >, konst15 :
+    :: sparse_embedded :: ops :: konst :: Const2 < FixedI16, 120, 84, 171 >,
+    mat_mul16 : :: sparse_embedded :: ops :: matmul :: MatMul < FixedI16, 120,
+    84, 1, 171 >, un_op17 : :: sparse_embedded :: ops :: map :: ReLu2 <
+    FixedI16, 1, 84 >, konst18 : :: sparse_embedded :: ops :: konst :: Const2
+    < FixedI16, 84, 10, 93 >, mat_mul19 : :: sparse_embedded :: ops :: matmul
+    :: MatMul < FixedI16, 84, 10, 1, 93 >,
+} impl Net
+{
+    const NET : Self = Self
+    {
+        conv2 : :: sparse_embedded :: ops :: conv_unary :: ConvUnary
+        {
+            kernel :
+            [:: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 493 }, i : 16, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 651 }, i : 17, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 812 }, i : 33, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 585 }, i : 49, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 368 }, i : 65, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 551 }, i : 18, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 884 }, i : 34, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 866 }, i : 50, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 583 }, i : 66, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 280 }, i : 19, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 452 }, i : 35, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 555 }, i : 51, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 463 }, i : 67, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 235 }, i : 0, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 305 }, i : 16, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 237 }, i : 32, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 479 }, i : 64, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 286 }, i : 1, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 312 }, i : 17, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 229 }, i : 33, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 225 }, i : 49, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 567 }, i : 65, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 362 }, i : 2, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 333 }, i : 18, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 349 }, i : 50, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 486 }, i : 66, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 379 }, i : 3, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 227 }, i : 19, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 450 }, i : 51, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 388 }, i : 67, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 365 }, i : 52, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 269 }, i : 68, in_feature : 0,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 431 }, i : 16, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 479 }, i : 32, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 219 }, i : 48, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 391 }, i : 1, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 689 }, i : 17, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 516 }, i : 33, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 376 }, i : 65, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 620 }, i : 2, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 781 }, i : 18, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 265 }, i : 34, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 303 }, i : 50, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 492 }, i : 66, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 652 }, i : 3, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 543 }, i : 19, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 424 }, i : 51, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 533 }, i : 67, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 506 }, i : 4, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 262 }, i : 20, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 491 }, i : 52, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 502 }, i : 68, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 412 }, i : 0, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 485 }, i : 16, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 506 }, i : 32, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 371 }, i : 48, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 399 }, i : 1, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 762 }, i : 17, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 932 }, i : 33, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 924 }, i : 49, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 722 }, i : 65, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 590 }, i : 50, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 720 }, i : 66, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 631 }, i : 3, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 593 }, i : 19, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 517 }, i : 35, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 348 }, i : 51, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 400 }, i : 4, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 546 }, i : 20, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 581 }, i : 36, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 525 }, i : 52, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 337 }, i : 0, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 430 }, i : 16, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 351 }, i : 32, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 275 }, i : 64, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 420 }, i : 33, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 509 }, i : 49, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 259 }, i : 65, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 350 }, i : 2, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 685 }, i : 18, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 614 }, i : 34, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 210 }, i : 50, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 384 }, i : 51, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 392 }, i : 67, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 342 }, i : 20, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 560 }, i : 36, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 403 }, i : 52, in_feature : 0,
+                 out_feature : 5
+             },],
+        }, un_op3 : :: sparse_embedded :: ops :: map :: ReLu4 :: DEFAULT,
+        max_pool4 : :: sparse_embedded :: ops :: maxpool :: MaxPool ::
+        DEFAULT, conv6 : :: sparse_embedded :: ops :: conv_unary :: ConvUnary
+        {
+            kernel :
+            [:: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 264 }, i : 18, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 174 }, i : 34, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 289 }, i : 66, in_feature : 0,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 370 }, i : 50, in_feature : 1,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 353 }, i : 51, in_feature : 1,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 370 }, i : 36, in_feature : 1,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 309 }, i : 52, in_feature : 1,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 330 }, i : 34, in_feature : 2,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 512 }, i : 67, in_feature : 2,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 447 }, i : 68, in_feature : 2,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 253 }, i : 34, in_feature : 3,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 419 }, i : 50, in_feature : 3,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 226 }, i : 35, in_feature : 3,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 210 }, i : 20, in_feature : 3,
+                 out_feature : 0
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 252 }, i : 34, in_feature : 1,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 238 }, i : 32, in_feature : 3,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 420 }, i : 49, in_feature : 3,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 425 }, i : 65, in_feature : 3,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 463 }, i : 33, in_feature : 5,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 448 }, i : 49, in_feature : 5,
+                 out_feature : 1
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 439 }, i : 3, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 269 }, i : 19, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 307 }, i : 35, in_feature : 0,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 372 }, i : 51, in_feature : 2,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 292 }, i : 65, in_feature : 3,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 342 }, i : 2, in_feature : 3,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 342 }, i : 18, in_feature : 3,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 387 }, i : 34, in_feature : 3,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 367 }, i : 50, in_feature : 3,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 329 }, i : 66, in_feature : 3,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 266 }, i : 51, in_feature : 3,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 335 }, i : 67, in_feature : 3,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 303 }, i : 65, in_feature : 5,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 302 }, i : 34, in_feature : 5,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 465 }, i : 50, in_feature : 5,
+                 out_feature : 3
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 366 }, i : 36, in_feature : 0,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 259 }, i : 52, in_feature : 0,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 264 }, i : 68, in_feature : 0,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 288 }, i : 66, in_feature : 2,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 263 }, i : 52, in_feature : 2,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 191 }, i : 68, in_feature : 2,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 349 }, i : 18, in_feature : 3,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 376 }, i : 34, in_feature : 3,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 188 }, i : 3, in_feature : 3,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 166 }, i : 19, in_feature : 3,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 308 }, i : 35, in_feature : 3,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 305 }, i : 51, in_feature : 3,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 271 }, i : 50, in_feature : 5,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 253 }, i : 66, in_feature : 5,
+                 out_feature : 4
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 366 }, i : 33, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 409 }, i : 49, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 268 }, i : 18, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 446 }, i : 35, in_feature : 0,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 357 }, i : 34, in_feature : 1,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 379 }, i : 19, in_feature : 1,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 260 }, i : 35, in_feature : 1,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 355 }, i : 34, in_feature : 2,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 310 }, i : 19, in_feature : 2,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 247 }, i : 36, in_feature : 2,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 198 }, i : 2, in_feature : 3,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 169 }, i : 18, in_feature : 3,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 689 }, i : 19, in_feature : 3,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 714 }, i : 35, in_feature : 3,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 431 }, i : 51, in_feature : 3,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 373 }, i : 36, in_feature : 3,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 272 }, i : 32, in_feature : 5,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 333 }, i : 48, in_feature : 5,
+                 out_feature : 5
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 209 }, i : 32, in_feature : 0,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 380 }, i : 17, in_feature : 0,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 486 }, i : 49, in_feature : 0,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 294 }, i : 18, in_feature : 0,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 313 }, i : 34, in_feature : 0,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 245 }, i : 66, in_feature : 0,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 369 }, i : 35, in_feature : 0,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 282 }, i : 4, in_feature : 0,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 335 }, i : 33, in_feature : 1,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 214 }, i : 50, in_feature : 1,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 280 }, i : 19, in_feature : 1,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 296 }, i : 2, in_feature : 2,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 141 }, i : 34, in_feature : 2,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 165 }, i : 50, in_feature : 2,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 252 }, i : 19, in_feature : 2,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 366 }, i : 51, in_feature : 2,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 354 }, i : 48, in_feature : 3,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 255 }, i : 33, in_feature : 3,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 286 }, i : 49, in_feature : 3,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 312 }, i : 18, in_feature : 3,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 333 }, i : 50, in_feature : 3,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 288 }, i : 66, in_feature : 3,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 235 }, i : 51, in_feature : 3,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 253 }, i : 17, in_feature : 5,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 392 }, i : 34, in_feature : 5,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 296 }, i : 35, in_feature : 5,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 268 }, i : 51, in_feature : 5,
+                 out_feature : 6
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 354 }, i : 65, in_feature : 0,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 224 }, i : 18, in_feature : 0,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 299 }, i : 34, in_feature : 0,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 260 }, i : 20, in_feature : 0,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 273 }, i : 36, in_feature : 0,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 462 }, i : 50, in_feature : 2,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 258 }, i : 35, in_feature : 2,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 282 }, i : 1, in_feature : 3,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 338 }, i : 4, in_feature : 3,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 651 }, i : 20, in_feature : 3,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 544 }, i : 36, in_feature : 3,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 276 }, i : 52, in_feature : 3,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 299 }, i : 68, in_feature : 3,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 246 }, i : 51, in_feature : 5,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 325 }, i : 36, in_feature : 5,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 358 }, i : 52, in_feature : 5,
+                 out_feature : 7
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 426 }, i : 49, in_feature : 0,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 269 }, i : 0, in_feature : 1,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 298 }, i : 1, in_feature : 1,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 486 }, i : 32, in_feature : 2,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 402 }, i : 17, in_feature : 2,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 355 }, i : 33, in_feature : 2,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 330 }, i : 18, in_feature : 2,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 220 }, i : 34, in_feature : 3,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 229 }, i : 16, in_feature : 0,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 368 }, i : 32, in_feature : 0,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 456 }, i : 48, in_feature : 0,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 369 }, i : 64, in_feature : 0,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 273 }, i : 17, in_feature : 0,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 294 }, i : 2, in_feature : 0,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 252 }, i : 34, in_feature : 0,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 334 }, i : 51, in_feature : 0,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 302 }, i : 16, in_feature : 2,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 182 }, i : 32, in_feature : 2,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 448 }, i : 18, in_feature : 3,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 434 }, i : 34, in_feature : 3,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 181 }, i : 50, in_feature : 3,
+                 out_feature : 9
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 297 }, i : 0, in_feature : 1,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 431 }, i : 1, in_feature : 1,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 430 }, i : 2, in_feature : 1,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 295 }, i : 3, in_feature : 1,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 316 }, i : 35, in_feature : 1,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 231 }, i : 1, in_feature : 2,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 206 }, i : 17, in_feature : 2,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 232 }, i : 33, in_feature : 2,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 322 }, i : 2, in_feature : 2,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 327 }, i : 1, in_feature : 5,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 303 }, i : 2, in_feature : 5,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 290 }, i : 18, in_feature : 5,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 239 }, i : 0, in_feature : 0,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 297 }, i : 1, in_feature : 0,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 331 }, i : 17, in_feature : 0,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 251 }, i : 34, in_feature : 0,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 467 }, i : 50, in_feature : 0,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 211 }, i : 66, in_feature : 0,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 304 }, i : 36, in_feature : 0,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 273 }, i : 52, in_feature : 0,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 213 }, i : 34, in_feature : 1,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 313 }, i : 17, in_feature : 2,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 363 }, i : 33, in_feature : 2,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 303 }, i : 34, in_feature : 2,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 245 }, i : 50, in_feature : 2,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 277 }, i : 36, in_feature : 2,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 308 }, i : 33, in_feature : 3,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 448 }, i : 49, in_feature : 3,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 589 }, i : 65, in_feature : 3,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 253 }, i : 3, in_feature : 1,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 294 }, i : 17, in_feature : 2,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 538 }, i : 34, in_feature : 2,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 433 }, i : 19, in_feature : 2,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 348 }, i : 4, in_feature : 2,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 354 }, i : 2, in_feature : 3,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 409 }, i : 18, in_feature : 5,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 477 }, i : 34, in_feature : 5,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 257 }, i : 19, in_feature : 5,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 386 }, i : 0, in_feature : 0,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 364 }, i : 35, in_feature : 0,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 256 }, i : 16, in_feature : 2,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 292 }, i : 1, in_feature : 2,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 225 }, i : 17, in_feature : 2,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 265 }, i : 2, in_feature : 2,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 185 }, i : 35, in_feature : 2,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 299 }, i : 51, in_feature : 2,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 167 }, i : 32, in_feature : 3,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 216 }, i : 33, in_feature : 3,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 238 }, i : 65, in_feature : 0,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 436 }, i : 50, in_feature : 0,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 269 }, i : 66, in_feature : 0,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 312 }, i : 19, in_feature : 0,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 374 }, i : 35, in_feature : 0,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 314 }, i : 48, in_feature : 1,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 288 }, i : 19, in_feature : 1,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 386 }, i : 48, in_feature : 2,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 507 }, i : 64, in_feature : 2,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 246 }, i : 33, in_feature : 2,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 463 }, i : 49, in_feature : 2,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 333 }, i : 66, in_feature : 2,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 303 }, i : 2, in_feature : 3,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 322 }, i : 18, in_feature : 3,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 240 }, i : 34, in_feature : 3,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 363 }, i : 51, in_feature : 3,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 235 }, i : 20, in_feature : 3,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 292 }, i : 36, in_feature : 3,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 270 }, i : 18, in_feature : 5,
+                 out_feature : 15
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 267 }, i : 34, in_feature : 5,
+                 out_feature : 15
+             },],
+        }, un_op7 : :: sparse_embedded :: ops :: map :: ReLu4 :: DEFAULT,
+        max_pool8 : :: sparse_embedded :: ops :: maxpool :: MaxPool ::
+        DEFAULT, conv10 : :: sparse_embedded :: ops :: conv_unary :: ConvUnary
+        {
+            kernel :
+            [:: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 332 }, i : 35, in_feature : 0,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 315 }, i : 3, in_feature : 11,
+                 out_feature : 2
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 269 }, i : 34, in_feature : 6,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 235 }, i : 3, in_feature : 9,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 222 }, i : 32, in_feature : 14,
+                 out_feature : 8
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 316 }, i : 49, in_feature : 0,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 333 }, i : 34, in_feature : 0,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 256 }, i : 50, in_feature : 4,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 349 }, i : 50, in_feature : 6,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 291 }, i : 19, in_feature : 7,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 264 }, i : 34, in_feature : 9,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 322 }, i : 49, in_feature : 10,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 254 }, i : 2, in_feature : 11,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 294 }, i : 51, in_feature : 13,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 309 }, i : 49, in_feature : 14,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 254 }, i : 51, in_feature : 14,
+                 out_feature : 10
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 282 }, i : 19, in_feature : 4,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 346 }, i : 32, in_feature : 9,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 287 }, i : 48, in_feature : 9,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 473 }, i : 49, in_feature : 9,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 253 }, i : 35, in_feature : 15,
+                 out_feature : 11
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 177 }, i : 1, in_feature : 0,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 287 }, i : 50, in_feature : 0,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 311 }, i : 17, in_feature : 7,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 331 }, i : 33, in_feature : 7,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 260 }, i : 18, in_feature : 8,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 417 }, i : 33, in_feature : 14,
+                 out_feature : 13
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 272 }, i : 19, in_feature : 6,
+                 out_feature : 14
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 325 }, i : 49, in_feature : 8,
+                 out_feature : 17
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 212 }, i : 16, in_feature : 3,
+                 out_feature : 20
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 307 }, i : 49, in_feature : 3,
+                 out_feature : 20
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 301 }, i : 48, in_feature : 6,
+                 out_feature : 20
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 341 }, i : 2, in_feature : 11,
+                 out_feature : 20
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 304 }, i : 18, in_feature : 15,
+                 out_feature : 20
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 268 }, i : 50, in_feature : 15,
+                 out_feature : 20
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 344 }, i : 19, in_feature : 15,
+                 out_feature : 20
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 327 }, i : 1, in_feature : 4,
+                 out_feature : 24
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 278 }, i : 18, in_feature : 5,
+                 out_feature : 24
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 299 }, i : 2, in_feature : 8,
+                 out_feature : 24
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 293 }, i : 1, in_feature : 11,
+                 out_feature : 24
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 357 }, i : 2, in_feature : 11,
+                 out_feature : 24
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 194 }, i : 17, in_feature : 13,
+                 out_feature : 24
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 357 }, i : 51, in_feature : 15,
+                 out_feature : 24
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 387 }, i : 51, in_feature : 1,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 320 }, i : 49, in_feature : 5,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 408 }, i : 51, in_feature : 5,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 220 }, i : 2, in_feature : 6,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 370 }, i : 18, in_feature : 9,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 237 }, i : 17, in_feature : 11,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 153 }, i : 3, in_feature : 11,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 183 }, i : 18, in_feature : 13,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 244 }, i : 3, in_feature : 14,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 349 }, i : 19, in_feature : 15,
+                 out_feature : 26
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 271 }, i : 18, in_feature : 1,
+                 out_feature : 31
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 207 }, i : 50, in_feature : 1,
+                 out_feature : 31
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 289 }, i : 1, in_feature : 5,
+                 out_feature : 31
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 264 }, i : 3, in_feature : 7,
+                 out_feature : 31
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 333 }, i : 35, in_feature : 10,
+                 out_feature : 31
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 233 }, i : 50, in_feature : 13,
+                 out_feature : 31
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 304 }, i : 49, in_feature : 1,
+                 out_feature : 38
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 462 }, i : 17, in_feature : 6,
+                 out_feature : 38
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 299 }, i : 48, in_feature : 7,
+                 out_feature : 38
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 306 }, i : 50, in_feature : 5,
+                 out_feature : 39
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 260 }, i : 35, in_feature : 13,
+                 out_feature : 39
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 287 }, i : 35, in_feature : 15,
+                 out_feature : 39
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 344 }, i : 1, in_feature : 0,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 439 }, i : 48, in_feature : 5,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 280 }, i : 51, in_feature : 5,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 297 }, i : 33, in_feature : 6,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 296 }, i : 49, in_feature : 7,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 364 }, i : 50, in_feature : 7,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 447 }, i : 51, in_feature : 7,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 281 }, i : 34, in_feature : 8,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 374 }, i : 18, in_feature : 9,
+                 out_feature : 44
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 322 }, i : 16, in_feature : 0,
+                 out_feature : 45
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 204 }, i : 32, in_feature : 0,
+                 out_feature : 45
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 196 }, i : 17, in_feature : 0,
+                 out_feature : 45
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 496 }, i : 33, in_feature : 5,
+                 out_feature : 45
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 211 }, i : 18, in_feature : 5,
+                 out_feature : 45
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 322 }, i : 34, in_feature : 5,
+                 out_feature : 45
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 300 }, i : 17, in_feature : 15,
+                 out_feature : 45
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 238 }, i : 17, in_feature : 0,
+                 out_feature : 50
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 322 }, i : 51, in_feature : 4,
+                 out_feature : 50
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 281 }, i : 16, in_feature : 6,
+                 out_feature : 50
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 307 }, i : 19, in_feature : 6,
+                 out_feature : 50
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 253 }, i : 32, in_feature : 9,
+                 out_feature : 50
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 184 }, i : 48, in_feature : 9,
+                 out_feature : 50
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 279 }, i : 49, in_feature : 13,
+                 out_feature : 50
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 310 }, i : 32, in_feature : 5,
+                 out_feature : 51
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 325 }, i : 49, in_feature : 7,
+                 out_feature : 51
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 301 }, i : 50, in_feature : 9,
+                 out_feature : 51
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 193 }, i : 51, in_feature : 13,
+                 out_feature : 51
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 380 }, i : 18, in_feature : 5,
+                 out_feature : 56
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 382 }, i : 35, in_feature : 5,
+                 out_feature : 56
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 242 }, i : 2, in_feature : 11,
+                 out_feature : 56
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 321 }, i : 16, in_feature : 13,
+                 out_feature : 56
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 406 }, i : 49, in_feature : 13,
+                 out_feature : 56
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 247 }, i : 51, in_feature : 15,
+                 out_feature : 56
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 378 }, i : 17, in_feature : 0,
+                 out_feature : 60
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 263 }, i : 49, in_feature : 6,
+                 out_feature : 60
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 212 }, i : 50, in_feature : 10,
+                 out_feature : 60
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 243 }, i : 17, in_feature : 14,
+                 out_feature : 60
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 273 }, i : 1, in_feature : 1,
+                 out_feature : 61
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 262 }, i : 16, in_feature : 6,
+                 out_feature : 61
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 274 }, i : 48, in_feature : 11,
+                 out_feature : 61
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 367 }, i : 2, in_feature : 15,
+                 out_feature : 61
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 388 }, i : 33, in_feature : 6,
+                 out_feature : 67
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 276 }, i : 33, in_feature : 7,
+                 out_feature : 67
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 219 }, i : 35, in_feature : 15,
+                 out_feature : 67
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 279 }, i : 17, in_feature : 5,
+                 out_feature : 68
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 476 }, i : 16, in_feature : 13,
+                 out_feature : 68
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 354 }, i : 2, in_feature : 15,
+                 out_feature : 68
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 253 }, i : 48, in_feature : 0,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 252 }, i : 50, in_feature : 4,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 414 }, i : 19, in_feature : 4,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 304 }, i : 0, in_feature : 6,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 267 }, i : 19, in_feature : 7,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 254 }, i : 0, in_feature : 9,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 174 }, i : 1, in_feature : 9,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 370 }, i : 49, in_feature : 10,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 272 }, i : 51, in_feature : 14,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 247 }, i : 2, in_feature : 15,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 164 }, i : 3, in_feature : 15,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 276 }, i : 19, in_feature : 15,
+                 out_feature : 70
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 260 }, i : 1, in_feature : 0,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 219 }, i : 2, in_feature : 3,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 155 }, i : 18, in_feature : 3,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 389 }, i : 19, in_feature : 4,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 382 }, i : 16, in_feature : 5,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 229 }, i : 32, in_feature : 6,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 282 }, i : 18, in_feature : 8,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 321 }, i : 2, in_feature : 11,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 327 }, i : 50, in_feature : 15,
+                 out_feature : 71
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 521 }, i : 2, in_feature : 0,
+                 out_feature : 75
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 376 }, i : 3, in_feature : 3,
+                 out_feature : 75
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 213 }, i : 2, in_feature : 5,
+                 out_feature : 75
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 432 }, i : 3, in_feature : 11,
+                 out_feature : 75
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 450 }, i : 18, in_feature : 13,
+                 out_feature : 75
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 200 }, i : 19, in_feature : 14,
+                 out_feature : 75
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 299 }, i : 18, in_feature : 6,
+                 out_feature : 77
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 242 }, i : 32, in_feature : 6,
+                 out_feature : 80
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 312 }, i : 33, in_feature : 8,
+                 out_feature : 80
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 377 }, i : 1, in_feature : 15,
+                 out_feature : 80
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 299 }, i : 0, in_feature : 3,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 441 }, i : 48, in_feature : 3,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 205 }, i : 49, in_feature : 3,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 161 }, i : 32, in_feature : 4,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 286 }, i : 48, in_feature : 4,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 235 }, i : 1, in_feature : 5,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 316 }, i : 48, in_feature : 6,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 217 }, i : 0, in_feature : 7,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 294 }, i : 49, in_feature : 9,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 289 }, i : 16, in_feature : 10,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 190 }, i : 17, in_feature : 10,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 330 }, i : 32, in_feature : 15,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 400 }, i : 48, in_feature : 15,
+                 out_feature : 87
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 396 }, i : 19, in_feature : 0,
+                 out_feature : 88
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 250 }, i : 50, in_feature : 6,
+                 out_feature : 88
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 227 }, i : 19, in_feature : 7,
+                 out_feature : 88
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 274 }, i : 3, in_feature : 10,
+                 out_feature : 88
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 236 }, i : 19, in_feature : 14,
+                 out_feature : 88
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 234 }, i : 48, in_feature : 15,
+                 out_feature : 88
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 263 }, i : 49, in_feature : 15,
+                 out_feature : 88
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 380 }, i : 35, in_feature : 15,
+                 out_feature : 88
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 271 }, i : 3, in_feature : 3,
+                 out_feature : 90
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 340 }, i : 32, in_feature : 6,
+                 out_feature : 90
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 308 }, i : 34, in_feature : 6,
+                 out_feature : 90
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 247 }, i : 33, in_feature : 7,
+                 out_feature : 90
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 329 }, i : 19, in_feature : 7,
+                 out_feature : 90
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 248 }, i : 51, in_feature : 13,
+                 out_feature : 90
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 225 }, i : 16, in_feature : 3,
+                 out_feature : 92
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 350 }, i : 48, in_feature : 5,
+                 out_feature : 92
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 347 }, i : 51, in_feature : 6,
+                 out_feature : 92
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 274 }, i : 51, in_feature : 7,
+                 out_feature : 92
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 394 }, i : 34, in_feature : 8,
+                 out_feature : 92
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 347 }, i : 18, in_feature : 3,
+                 out_feature : 99
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 317 }, i : 51, in_feature : 3,
+                 out_feature : 99
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 331 }, i : 49, in_feature : 6,
+                 out_feature : 99
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 239 }, i : 35, in_feature : 7,
+                 out_feature : 99
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 285 }, i : 2, in_feature : 11,
+                 out_feature : 99
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 434 }, i : 18, in_feature : 11,
+                 out_feature : 99
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 413 }, i : 3, in_feature : 11,
+                 out_feature : 99
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 262 }, i : 17, in_feature : 0,
+                 out_feature : 100
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 287 }, i : 35, in_feature : 4,
+                 out_feature : 100
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 198 }, i : 16, in_feature : 8,
+                 out_feature : 100
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 369 }, i : 32, in_feature : 8,
+                 out_feature : 100
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 548 }, i : 32, in_feature : 9,
+                 out_feature : 100
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 314 }, i : 35, in_feature : 10,
+                 out_feature : 100
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 288 }, i : 32, in_feature : 15,
+                 out_feature : 100
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 261 }, i : 32, in_feature : 0,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 351 }, i : 34, in_feature : 1,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 293 }, i : 19, in_feature : 4,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 244 }, i : 19, in_feature : 5,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 334 }, i : 51, in_feature : 6,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 570 }, i : 19, in_feature : 7,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 323 }, i : 19, in_feature : 8,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 236 }, i : 19, in_feature : 13,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 360 }, i : 50, in_feature : 14,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 350 }, i : 51, in_feature : 14,
+                 out_feature : 101
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 316 }, i : 34, in_feature : 0,
+                 out_feature : 103
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 251 }, i : 51, in_feature : 4,
+                 out_feature : 103
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 326 }, i : 32, in_feature : 5,
+                 out_feature : 103
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 136 }, i : 3, in_feature : 5,
+                 out_feature : 103
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 262 }, i : 19, in_feature : 7,
+                 out_feature : 103
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 412 }, i : 35, in_feature : 7,
+                 out_feature : 103
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 281 }, i : 19, in_feature : 13,
+                 out_feature : 103
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 471 }, i : 17, in_feature : 5,
+                 out_feature : 106
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 309 }, i : 18, in_feature : 5,
+                 out_feature : 106
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 142 }, i : 19, in_feature : 6,
+                 out_feature : 106
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 192 }, i : 0, in_feature : 7,
+                 out_feature : 106
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 256 }, i : 1, in_feature : 11,
+                 out_feature : 106
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 294 }, i : 48, in_feature : 0,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 429 }, i : 16, in_feature : 1,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 326 }, i : 32, in_feature : 1,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 342 }, i : 16, in_feature : 3,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 505 }, i : 16, in_feature : 5,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 266 }, i : 0, in_feature : 6,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 340 }, i : 16, in_feature : 6,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 314 }, i : 35, in_feature : 7,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 226 }, i : 32, in_feature : 8,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 215 }, i : 48, in_feature : 8,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 339 }, i : 32, in_feature : 10,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 227 }, i : 48, in_feature : 10,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 277 }, i : 49, in_feature : 10,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 194 }, i : 48, in_feature : 13,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 290 }, i : 2, in_feature : 13,
+                 out_feature : 107
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 266 }, i : 34, in_feature : 1,
+                 out_feature : 113
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 274 }, i : 34, in_feature : 5,
+                 out_feature : 113
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 348 }, i : 18, in_feature : 6,
+                 out_feature : 113
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 308 }, i : 35, in_feature : 6,
+                 out_feature : 113
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 287 }, i : 51, in_feature : 8,
+                 out_feature : 113
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 217 }, i : 50, in_feature : 10,
+                 out_feature : 113
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 362 }, i : 49, in_feature : 13,
+                 out_feature : 113
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 196 }, i : 0, in_feature : 0,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 372 }, i : 0, in_feature : 3,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 205 }, i : 16, in_feature : 3,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 529 }, i : 1, in_feature : 3,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 298 }, i : 35, in_feature : 4,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 304 }, i : 1, in_feature : 10,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 361 }, i : 2, in_feature : 10,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 240 }, i : 0, in_feature : 11,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 217 }, i : 16, in_feature : 11,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 295 }, i : 1, in_feature : 11,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : - 326 }, i : 17, in_feature : 14,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 418 }, i : 1, in_feature : 15,
+                 out_feature : 117
+             }, :: sparse_embedded :: ops :: conv_unary :: KernelPoint
+             {
+                 value : FixedI16 { n : 189 }, i : 49, in_feature : 15,
+                 out_feature : 117
+             },],
+        }, un_op11 : :: sparse_embedded :: ops :: map :: ReLu4 :: DEFAULT,
+        axis_op13 : :: sparse_embedded :: ops :: axis_op :: RmW :: DEFAULT,
+        axis_op14 : :: sparse_embedded :: ops :: axis_op :: RmH :: DEFAULT,
+        konst15 : :: sparse_embedded :: ops :: konst :: Const2
+        {
+            data :
+            [:: sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 269 }, h : 2, w : 25 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 395 }, h : 2, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 285 }, h : 2, w : 73 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 228 }, h : 8, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 200 }, h : 8, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 300 }, h : 8, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 311 }, h : 10, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 359 }, h : 10, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 329 }, h : 10, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 401 }, h : 10, w : 46 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 309 }, h : 10, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 259 }, h : 10, w : 67 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 305 }, h : 10, w : 73 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 332 }, h : 10, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 475 }, h : 11, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 323 }, h : 11, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 424 }, h : 11, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 412 }, h : 13, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 279 }, h : 13, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 207 }, h : 13, w : 23 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 266 }, h : 13, w : 25 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 234 }, h : 13, w : 36 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 385 }, h : 13, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 310 }, h : 14, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 282 }, h : 17, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 292 }, h : 17, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 239 }, h : 20, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 248 }, h : 20, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 616 }, h : 20, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 416 }, h : 24, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 594 }, h : 24, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 273 }, h : 24, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 260 }, h : 24, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 357 }, h : 26, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 345 }, h : 26, w : 24 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 507 }, h : 26, w : 57 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 209 }, h : 26, w : 73 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 439 }, h : 26, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 292 }, h : 31, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 495 }, h : 31, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 304 }, h : 31, w : 49 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 624 }, h : 38, w : 46 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 286 }, h : 39, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 312 }, h : 39, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 240 }, h : 39, w : 73 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 257 }, h : 39, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 462 }, h : 44, w : 15 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 231 }, h : 44, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 269 }, h : 44, w : 24 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 465 }, h : 44, w : 46 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 226 }, h : 44, w : 57 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 250 }, h : 44, w : 61 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 440 }, h : 44, w : 73 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 324 }, h : 44, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 254 }, h : 45, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 307 }, h : 45, w : 15 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 465 }, h : 45, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 475 }, h : 45, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 300 }, h : 50, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 244 }, h : 50, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 461 }, h : 50, w : 73 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 313 }, h : 51, w : 15 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 337 }, h : 51, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 288 }, h : 51, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 307 }, h : 56, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 323 }, h : 56, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 439 }, h : 56, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 409 }, h : 56, w : 23 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 280 }, h : 56, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 325 }, h : 60, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 411 }, h : 60, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 359 }, h : 61, w : 25 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 288 }, h : 61, w : 39 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 382 }, h : 61, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 329 }, h : 67, w : 15 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 231 }, h : 67, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 445 }, h : 67, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 405 }, h : 68, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 221 }, h : 68, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 293 }, h : 68, w : 23 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 323 }, h : 68, w : 60 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 224 }, h : 70, w : 15 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 348 }, h : 70, w : 25 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 219 }, h : 70, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 248 }, h : 70, w : 35 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 335 }, h : 70, w : 36 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 365 }, h : 70, w : 39 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 233 }, h : 70, w : 56 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 239 }, h : 70, w : 61 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 402 }, h : 70, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 203 }, h : 71, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 366 }, h : 71, w : 15 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 401 }, h : 71, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 433 }, h : 71, w : 23 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 223 }, h : 71, w : 46 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 249 }, h : 71, w : 49 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 331 }, h : 71, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 235 }, h : 75, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 697 }, h : 75, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 419 }, h : 75, w : 49 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 219 }, h : 75, w : 57 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 240 }, h : 75, w : 67 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 261 }, h : 77, w : 46 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 436 }, h : 80, w : 46 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 347 }, h : 80, w : 57 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 537 }, h : 87, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 397 }, h : 87, w : 46 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 603 }, h : 87, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 375 }, h : 87, w : 67 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 283 }, h : 88, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 440 }, h : 88, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 206 }, h : 88, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 242 }, h : 88, w : 49 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 456 }, h : 88, w : 57 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 232 }, h : 88, w : 60 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 441 }, h : 90, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 239 }, h : 90, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 356 }, h : 90, w : 57 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 315 }, h : 90, w : 67 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 367 }, h : 92, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 290 }, h : 92, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 294 }, h : 92, w : 25 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 353 }, h : 92, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 393 }, h : 92, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 428 }, h : 99, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 255 }, h : 99, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 344 }, h : 99, w : 23 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 392 }, h : 99, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 305 }, h : 99, w : 46 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 343 }, h : 99, w : 67 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 337 }, h : 99, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 342 }, h : 100, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 269 }, h : 100, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 370 }, h : 100, w : 15 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 379 }, h : 100, w : 67 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 536 }, h : 100, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 204 }, h : 101, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 577 }, h : 101, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 432 }, h : 101, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 311 }, h : 101, w : 49 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 315 }, h : 101, w : 57 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 320 }, h : 101, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 297 }, h : 101, w : 75 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 328 }, h : 103, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 322 }, h : 103, w : 36 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 479 }, h : 103, w : 39 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 217 }, h : 103, w : 57 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 241 }, h : 103, w : 73 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 355 }, h : 106, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 336 }, h : 106, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 248 }, h : 106, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 241 }, h : 106, w : 23 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 684 }, h : 107, w : 15 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 235 }, h : 107, w : 39 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 538 }, h : 107, w : 61 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 526 }, h : 107, w : 70 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 337 }, h : 107, w : 71 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 242 }, h : 107, w : 73 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 379 }, h : 113, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 326 }, h : 113, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 464 }, h : 113, w : 49 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 362 }, h : 113, w : 67 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 254 }, h : 117, w : 19 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 420 }, h : 117, w : 21 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 195 }, h : 117, w : 24 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 391 }, h : 117, w : 25 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 475 }, h : 117, w : 30 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 327 }, h : 117, w : 32 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 400 }, h : 117, w : 39 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 251 }, h : 117, w : 63 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 510 }, h : 117, w : 75 },]
+        }, mat_mul16 : :: sparse_embedded :: ops :: matmul :: MatMul ::
+        DEFAULT, un_op17 : :: sparse_embedded :: ops :: map :: ReLu2 ::
+        DEFAULT, konst18 : :: sparse_embedded :: ops :: konst :: Const2
+        {
+            data :
+            [:: sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 348 }, h : 3, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 275 }, h : 4, w : 1 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 417 }, h : 4, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 290 }, h : 4, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 728 }, h : 4, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 657 }, h : 5, w : 0 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 517 }, h : 5, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 265 }, h : 5, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 490 }, h : 5, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 193 }, h : 15, w : 1 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 885 }, h : 15, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 553 }, h : 15, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 447 }, h : 15, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 271 }, h : 19, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 386 }, h : 19, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 695 }, h : 19, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 387 }, h : 19, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 899 }, h : 19, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 827 }, h : 21, w : 0 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 367 }, h : 21, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 418 }, h : 21, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 570 }, h : 21, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 361 }, h : 21, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 367 }, h : 23, w : 0 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 327 }, h : 23, w : 1 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 286 }, h : 23, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 642 }, h : 23, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 445 }, h : 24, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 697 }, h : 25, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 249 }, h : 25, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 321 }, h : 25, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 327 }, h : 30, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 858 }, h : 30, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 207 }, h : 30, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 406 }, h : 30, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 507 }, h : 30, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 438 }, h : 30, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 304 }, h : 32, w : 1 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 322 }, h : 32, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 814 }, h : 32, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 287 }, h : 32, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 653 }, h : 32, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 435 }, h : 32, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 271 }, h : 32, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 586 }, h : 32, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 319 }, h : 35, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 524 }, h : 36, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 289 }, h : 39, w : 0 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 328 }, h : 39, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 237 }, h : 39, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 686 }, h : 39, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 601 }, h : 46, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 281 }, h : 46, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 589 }, h : 46, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 624 }, h : 46, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 358 }, h : 46, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 236 }, h : 49, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 694 }, h : 49, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 438 }, h : 49, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 258 }, h : 56, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 286 }, h : 57, w : 0 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 811 }, h : 57, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 445 }, h : 57, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 281 }, h : 60, w : 0 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 306 }, h : 60, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 296 }, h : 60, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 571 }, h : 61, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 293 }, h : 61, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 344 }, h : 63, w : 1 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 318 }, h : 63, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 724 }, h : 63, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 641 }, h : 63, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 259 }, h : 63, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 390 }, h : 67, w : 0 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 228 }, h : 67, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 227 }, h : 67, w : 5 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 649 }, h : 67, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 360 }, h : 67, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 1238 }, h : 70, w : 1 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 281 }, h : 70, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 326 }, h : 71, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 417 }, h : 73, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 327 }, h : 73, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 545 }, h : 73, w : 4 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 448 }, h : 73, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 321 }, h : 75, w : 1 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 655 }, h : 75, w : 2 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 234 }, h : 75, w : 3 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 242 }, h : 75, w : 6 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 721 }, h : 75, w : 7 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 501 }, h : 75, w : 8 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : - 361 }, h : 75, w : 9 }, ::
+             sparse_embedded :: ops :: konst :: DataPoint2
+             { value : FixedI16 { n : 219 }, h : 81, w : 4 },]
+        }, mat_mul19 : :: sparse_embedded :: ops :: matmul :: MatMul ::
+        DEFAULT,
+    } ; fn eval(& self, data_0 : [[[[FixedI16 ; 28] ; 28] ; 1] ; 1],) ->
+    ([[FixedI16 ; 10] ; 1],)
+    {
+        let data_2 = self . conv2 . eval(& data_0) ; let data_3 = self .
+        un_op3 . eval(data_2) ; let data_4 = self . max_pool4 . eval(& data_3)
+        ; let data_6 = self . conv6 . eval(& data_4) ; let data_7 = self .
+        un_op7 . eval(data_6) ; let data_8 = self . max_pool8 . eval(& data_7)
+        ; let data_10 = self . conv10 . eval(& data_8) ; let data_11 = self .
+        un_op11 . eval(data_10) ; let data_13 = self . axis_op13 .
+        eval(data_11) ; let data_14 = self . axis_op14 . eval(data_13) ; let
+        data_15 = self . konst15 . eval() ; let data_16 = self . mat_mul16 .
+        eval(& data_15, & data_14) ; let data_17 = self . un_op17 .
+        eval(data_16) ; let data_18 = self . konst18 . eval() ; let data_19 =
+        self . mat_mul19 . eval(& data_18, & data_17) ; (data_19,)
+    }
+}

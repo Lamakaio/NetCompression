@@ -19,7 +19,7 @@ fn send_image<T: SerialPort>(port: &mut T, im: [[u8; 28]; 28]) -> io::Result<u8>
     }
     for x in 0..28 {
         for y in 0..28 {
-            port.write(&im[x][y..y + 1])?;
+            port.write(&im[y][x..x + 1])?;
         }
     }
     port.read(&mut buf)?;
