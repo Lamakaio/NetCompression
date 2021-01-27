@@ -7,7 +7,7 @@ use gd32vf103xx_hal as hal;
 use hal::{gpio::GpioExt, pac, prelude::*, rcu::RcuExt};
 use longan_nano::led::{rgb, Led};
 use panic_halt as _;
-use serial::{write_byte, SerialWrapper, STDOUT};
+use serial::{write_byte, SerialReader, SerialWrapper, STDOUT};
 use sparse_embedded::*;
 const N_CONV1: usize = 68;
 const N_CONV2: usize = 189;
@@ -15,8 +15,6 @@ const N_CONV3: usize = 259;
 const N_FC1: usize = 177;
 const N_FC2: usize = 103;
 
-// const IM: ([[FixedI16; 28]; 28], u8) = include!("../build/im.rs");
-// LED's on PC13, PA1 and PA2
 const LAYERS: (
     ConvLayer<N_CONV1>,
     ConvLayer<N_CONV2>,
@@ -24,30 +22,6 @@ const LAYERS: (
     FCLayer<N_FC1>,
     FCLayer<N_FC2>,
 ) = include!("../build/layers.rs");
-
-struct SerialReader<F: FnMut() -> u8, G: FnMut(u8) -> ()> {
-    reader: F,
-    sender: G,
-}
-
-impl<F: FnMut() -> u8, G: FnMut(u8) -> ()> SerialReader<F, G> {
-    fn read_image(&mut self) -> [[FixedI16; 28]; 28] {
-        let mut array = [[FixedI16::ZERO; 28]; 28];
-        while (self.reader)() != 0xA0 {}
-        (self.sender)(0xA0);
-        for x in 0..28 {
-            for y in 0..28 {
-                let b = (self.reader)();
-                let n = b as i16 * 4;
-                array[x][y] = FixedI16 { n }
-            }
-        }
-        array
-    }
-    fn send_byte(&mut self, b: u8) {
-        (self.sender)(b)
-    }
-}
 
 fn forward_net(input: [[FixedI16; 28]; 28]) -> u8 {
     let (conv1, conv2, conv3, fc1, fc2) = &LAYERS;

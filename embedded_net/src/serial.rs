@@ -3,6 +3,7 @@
 use gd32vf103xx_hal::{pac::USART0, prelude::*, serial::Tx};
 use nb::block;
 use riscv::interrupt;
+use sparse_embedded::FixedI16;
 
 pub static mut STDOUT: Option<SerialWrapper> = None;
 
@@ -69,4 +70,28 @@ macro_rules! sprintln {
     ($s:expr, $($tt:tt)*) => {
         $crate::serial::write_fmt(format_args!(concat!($s, "\n"), $($tt)*))
     };
+}
+
+pub struct SerialReader<F: FnMut() -> u8, G: FnMut(u8) -> ()> {
+    pub reader: F,
+    pub sender: G,
+}
+
+impl<F: FnMut() -> u8, G: FnMut(u8) -> ()> SerialReader<F, G> {
+    pub fn read_image(&mut self) -> [[FixedI16; 28]; 28] {
+        let mut array = [[FixedI16::ZERO; 28]; 28];
+        while (self.reader)() != 0xA0 {}
+        (self.sender)(0xA0);
+        for x in 0..28 {
+            for y in 0..28 {
+                let b = (self.reader)();
+                let n = b as i16 * 4;
+                array[x][y] = FixedI16 { n }
+            }
+        }
+        array
+    }
+    pub fn send_byte(&mut self, b: u8) {
+        (self.sender)(b)
+    }
 }
